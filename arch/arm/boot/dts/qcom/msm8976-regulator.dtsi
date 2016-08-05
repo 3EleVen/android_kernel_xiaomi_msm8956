@@ -383,7 +383,7 @@
 		regulator-max-microvolt = <9>;
 
 		qcom,cpr-fuse-corners = <3>;
-		qcom,cpr-voltage-ceiling = <850000 1050000 1165000>;
+		qcom,cpr-voltage-ceiling = <950000 1050000 1165000>;
 		qcom,cpr-voltage-floor =   <720000  835000  930000>;
 		vdd-apc-supply = <&pm8950_s5>;
 
@@ -434,7 +434,7 @@
 		qcom,cpr-fuse-revision = <59 53 3 0>;
 		qcom,speed-bin-fuse-sel = <37 34 3 0>;
 
-		qcom,cpr-init-voltage-ref = <850000 1050000 1165000>;
+		qcom,cpr-init-voltage-ref = <950000 1050000 1165000>;
 		qcom,cpr-init-voltage-step = <10000>;
 
 		qcom,cpr-corner-map = <1 1 2 2 3 3 3 3 3>;
@@ -482,7 +482,7 @@
 		regulator-max-microvolt = <7>;
 
 		qcom,cpr-fuse-corners = <3>;
-		qcom,cpr-voltage-ceiling = <850000 1050000 1165000>;
+		qcom,cpr-voltage-ceiling = <950000 1050000 1165000>;
 		qcom,cpr-voltage-floor =   <720000  820000  915000>;
 		vdd-apc-supply = <&pm8004_s2>;
 
@@ -532,7 +532,7 @@
 		qcom,cpr-fuse-revision = <59 53 3 0>;
 		qcom,speed-bin-fuse-sel = <37 34 3 0>;
 
-		qcom,cpr-init-voltage-ref = <850000 1050000 1165000>;
+		qcom,cpr-init-voltage-ref = <950000 1050000 1165000>;
 		qcom,cpr-init-voltage-step = <10000>;
 
 		qcom,cpr-corner-map = <1 1 2 2 3 3 3>;
@@ -596,10 +596,10 @@
 		regulator-max-microvolt = <9>;
 
 		qcom,cpr-voltage-ceiling =
-				<770000 820000 870000 920000 1010000
+				<810000 865000 900000 950000 1010000
 				1050000 1110000 1165000 1165000>;
 		qcom,cpr-voltage-floor =
-				<710000 720000 730000 760000 835000
+				<755000 755000 755000 795000 835000
 				855000 920000 945000 945000>;
 		vdd-gfx-supply = <&pm8004_s5>;
 
@@ -632,7 +632,7 @@
 		qcom,cpr-gfx-volt-step = <5000>;
 
 		qcom,cpr-init-voltage-ref =
-				<820000 840000 900000 920000 950000
+				<865000 865000 950000 950000 950000
 				1050000 1050000 1165000 1165000>;
 		qcom,cpr-fuse-init-voltage =
 					<72 50 5>,
