@@ -12,7 +12,8 @@ export LD_LIBRARY_PATH=home/umang/toolchain/aarch64-linux-ubertc-android-4.9/lib
 STRIP="/home/umang/toolchain/aarch64-linux-ubertc-android-4.9/bin/aarch64-linux-android-strip"
 make clean
 make cyanogenmod_kenzo_defconfig
-KBUILD_BUILD_HOST="G5070"
+export KBUILD_BUILD_HOST="G5070"
+export KBUILD_BUILD_USER="Umang"
 make -j4
 $DTBTOOL -2 -o $KERNEL_DIR/arch/arm64/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
 mv $KERNEL_DIR/arch/arm64/boot/dt.img ~/Radon-Kenzo-New/tools/dt.img
