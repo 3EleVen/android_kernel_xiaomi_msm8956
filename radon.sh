@@ -1,0 +1,36 @@
+Start=$(date +"%s")
+yellow='\033[0;33m'
+white='\033[0m'
+red='\033[0;31m'
+gre='\e[0;32m'
+KERNEL_DIR=$PWD
+DTBTOOL=$KERNEL_DIR/dtbTool
+cd $KERNEL_DIR
+export ARCH=arm64
+export CROSS_COMPILE="/home/umang/toolchain/aarch64-linux-ubertc-android-4.9/bin/aarch64-linux-android-"
+export LD_LIBRARY_PATH=home/umang/toolchain/aarch64-linux-ubertc-android-4.9/lib/
+STRIP="/home/umang/toolchain/aarch64-linux-ubertc-android-4.9/bin/aarch64-linux-android-strip"
+make clean
+make cyanogenmod_kenzo_defconfig
+make -j4
+$DTBTOOL -2 -o $KERNEL_DIR/arch/arm64/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
+mv $KERNEL_DIR/arch/arm64/boot/dt.img ~/Radon-Kenzo-New/tools/dt.img
+cp $KERNEL_DIR/arch/arm64/boot/Image ~/Radon-Kenzo-New/tools/Image
+cp $KERNEL_DIR/drivers/staging/prima/wlan.ko ~/Radon-Kenzo-New/system/lib/modules/wlan.ko
+cd ~/Radon-Kenzo-New/
+rm Radon-Kenzo-New.zip
+rm Radon-Kenzo.zip
+cd system/lib/modules/
+$STRIP --strip-unneeded *.ko
+cd ~/Radon-Kenzo-New/
+zip -r Radon-Kenzo.zip *
+cd $KERNEL_DIR
+End=$(date +"%s")
+Diff=$(($End - $Start))
+zimage=$KERNEL_DIR/arch/arm64/boot/Image
+if ! [ -a $zimage ];
+then
+echo -e "$red<<Failed to compile zImage, fix the errors first>>$white"
+else
+echo -e "$gre<<Build completed in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds>>$white"
+fi
