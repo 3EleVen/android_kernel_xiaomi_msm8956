@@ -7,9 +7,9 @@ KERNEL_DIR=$PWD
 DTBTOOL=$KERNEL_DIR/dtbTool
 cd $KERNEL_DIR
 export ARCH=arm64
-export CROSS_COMPILE="/home/umang/toolchain/aarch64-linux-ubertc-android-4.9/bin/aarch64-linux-android-"
-export LD_LIBRARY_PATH=home/umang/toolchain/aarch64-linux-ubertc-android-4.9/lib/
-STRIP="/home/umang/toolchain/aarch64-linux-ubertc-android-4.9/bin/aarch64-linux-android-strip"
+export CROSS_COMPILE="/home/umang/toolchain/aarch64-linux-google-android-4.9/bin/aarch64-linux-android-"
+export LD_LIBRARY_PATH=home/umang/toolchain/aarch64-linux-google-android-4.9/lib/
+STRIP="/home/umang/toolchain/aarch64-linux-google-android-4.9/bin/aarch64-linux-android-strip"
 make clean
 make cyanogenmod_kenzo_defconfig
 export KBUILD_BUILD_HOST="G5070"
