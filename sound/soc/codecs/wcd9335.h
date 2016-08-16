@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -86,6 +86,20 @@ enum wcd9335_codec_event {
 	WCD9335_CODEC_EVENT_CODEC_UP = 0,
 };
 
+enum tasha_on_demand_supply {
+	ON_DEMAND_MICBIAS = 0,
+	ON_DEMAND_SUPPLIES_MAX,
+};
+
+/* structure used to put the defined
+ * ondemand supply for codec
+ * and count being used.
+ */
+struct on_demand_supply {
+	struct regulator *supply;
+	int ondemand_supply_count;
+};
+
 /* Dai data structure holds the
  * dai specific info like rate,
  * channel number etc.
@@ -114,6 +128,13 @@ enum {
 	SPKR_MODE_1,          /* COMP Gain = 12dB, Smartboost Max = 5.5V */
 };
 
+/*
+ * Rx path gain offsets
+ */
+enum {
+	RX_GAIN_OFFSET_M1P5_DB,
+	RX_GAIN_OFFSET_0_DB,
+};
 
 extern void *tasha_get_afe_config(struct snd_soc_codec *codec,
 				  enum afe_config_type config_type);
@@ -137,4 +158,5 @@ extern int tasha_codec_enable_standalone_micbias(struct snd_soc_codec *codec,
 						int micb_num,
 						bool enable);
 extern int tasha_set_spkr_mode(struct snd_soc_codec *codec, int mode);
+extern int tasha_set_spkr_gain_offset(struct snd_soc_codec *codec, int offset);
 #endif
