@@ -20,8 +20,7 @@ mv $KERNEL_DIR/arch/arm64/boot/dt.img ~/Radon-Kenzo-New/tools/dt.img
 cp $KERNEL_DIR/arch/arm64/boot/Image ~/Radon-Kenzo-New/tools/Image
 cp $KERNEL_DIR/drivers/staging/prima/wlan.ko ~/Radon-Kenzo-New/system/lib/modules/wlan.ko
 cd ~/Radon-Kenzo-New/
-rm Radon-Kenzo-New.zip
-rm Radon-Kenzo.zip
+rm *.zip
 cd system/lib/modules/
 $STRIP --strip-unneeded *.ko
 cd ~/Radon-Kenzo-New/
