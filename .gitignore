@@ -91,3 +91,9 @@ extra_certificates
 signing_key.priv
 signing_key.x509
 x509.genkey
+
+# Compiled kernel
+build/*.zip
+build/tools/dt.img
+build/tools/Image
+!build/system/lib/modules/wlan.ko
