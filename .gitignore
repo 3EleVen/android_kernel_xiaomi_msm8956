@@ -91,4 +91,12 @@ extra_certificates
 signing_key.priv
 signing_key.x509
 x509.genkey
-radon.sh
+
+# Compiled kernel
+build/*.zip
+build/tools/dt.img
+build/tools/Image
+!build/system/lib/fpc_fingerprint_hal.so
+!build/system/lib64/fpc_fingerprint_hal.so
+!build/system/lib/modules/wlan.ko
+!build/system/lib/modules/pronto/pronto_wlan.ko
